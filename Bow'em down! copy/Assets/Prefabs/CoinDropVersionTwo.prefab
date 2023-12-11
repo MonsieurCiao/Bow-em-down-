@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8848835027908846671}
   - component: {fileID: 4893658680640891817}
+  - component: {fileID: 1174559387564778250}
   m_Layer: 0
   m_Name: CoinDropVersionTwo
   m_TagString: Untagged
@@ -45,3 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coin: {fileID: 8452226455824625108, guid: 4dbae8854eb74481f96ec4a4fac6e65d, type: 3}
+  speed: 5
+--- !u!114 &1174559387564778250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552742812960967504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e598f492184b415d86aabaa195b194d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 10

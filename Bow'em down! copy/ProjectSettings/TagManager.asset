@@ -10,6 +10,8 @@ TagManager:
   - Home
   - Bow
   - CoinMaster
+  - MainCanvas
+  - DamageDisplayHolder
   layers:
   - Default
   - TransparentFX
@@ -44,6 +46,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1637637869
+    locked: 0
   - name: Burg
     uniqueID: 1582151217
     locked: 0
@@ -55,4 +60,7 @@ TagManager:
     locked: 0
   - name: EnemyDie
     uniqueID: 2263028859
+    locked: 0
+  - name: WorldUI
+    uniqueID: 364425529
     locked: 0

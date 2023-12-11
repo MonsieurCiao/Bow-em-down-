@@ -1,12 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using static Wave;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
     public Wave[] waves;
     private int currentWaveIndex = 0;
     private bool waveHasBeenCleared = false;
+
+    public TextMeshProUGUI WaveText;
 
     //time between waves
     bool waitUntilNextWave;
@@ -17,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnWaves());
         skipToNextWaveButton.SetActive(false);
         UpgradeCanvas.SetActive(false);
+        UpdateWaveText();
     }
     private void Update()
     {
@@ -56,9 +60,13 @@ public class EnemySpawner : MonoBehaviour
             skipToNextWaveButton.SetActive(false);
             UpgradeCanvas.SetActive(false);
             currentWaveIndex++;
+            UpdateWaveText();
         }
     }
-
+    void UpdateWaveText()
+    {
+        WaveText.text = "Wave " + (currentWaveIndex + 1).ToString();
+    }
     void SpawnEnemy(GameObject enemyPrefab)
     {
         // Implement your logic to spawn enemies here

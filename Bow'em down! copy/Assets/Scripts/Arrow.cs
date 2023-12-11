@@ -35,7 +35,7 @@ public class Arrow : MonoBehaviour
         arrowHead = GetComponentInChildren<ArrowHead>();
 
 
-       
+  
         
 
         // Set the instantiated arrow as a child of the arrow parent
