@@ -3,7 +3,9 @@ guid: 98574d9f054ec402789a84757d1eecc2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - damageDisplay: {instanceID: 0}
+  - arrowHitEnemyParticle: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
