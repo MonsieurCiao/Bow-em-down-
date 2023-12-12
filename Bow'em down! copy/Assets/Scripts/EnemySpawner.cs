@@ -5,6 +5,7 @@ using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public Home home;
     public Wave[] waves;
     private int currentWaveIndex = 0;
     private bool waveHasBeenCleared = false;
@@ -50,6 +51,7 @@ public class EnemySpawner : MonoBehaviour
             Bow bow = GameObject.FindGameObjectWithTag("Bow").GetComponent<Bow>();
             bow.inputAllowed = false;
             waitUntilNextWave = true;
+            home.isAbleToRegen = false;
             skipToNextWaveButton.SetActive(true);
             UpgradeCanvas.SetActive(true);
             while (waitUntilNextWave)
@@ -57,6 +59,7 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(1);
             }
             bow.inputAllowed = true;
+            home.isAbleToRegen = true;
             skipToNextWaveButton.SetActive(false);
             UpgradeCanvas.SetActive(false);
             currentWaveIndex++;
@@ -75,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
     public void SkipToNextWave()
     {
         waitUntilNextWave = false;
+        
     }
 }
 

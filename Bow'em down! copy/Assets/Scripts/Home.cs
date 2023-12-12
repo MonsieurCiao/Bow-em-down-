@@ -8,10 +8,11 @@ public class Home : MonoBehaviour
     public float regenRate = 1;
     float health;
     public GameObject HealthBar;
-    bool isAbleToRegen = true;
+    public bool isAbleToRegen = true;
     private void Start()
     {
         health = maxHealth;
+        StartCoroutine(Regen());
     }
     public void TakeDamage(float damage)
     {
@@ -26,17 +27,26 @@ public class Home : MonoBehaviour
     }
     public void UpdateHealthBar()
     {
+        print(health);
         HealthBar.transform.localScale = new Vector3(health / maxHealth, 1,1);
     }
     IEnumerator Regen()
     {
-        while (isAbleToRegen && health < maxHealth)
+        while (true)
         {
-            
-            health += regenRate;
-            if (health > maxHealth) health = maxHealth;
-            UpdateHealthBar();
-            yield return new WaitForSeconds(1);
+            while (isAbleToRegen && health < maxHealth)
+            {
+
+                health += regenRate;
+                if (health > maxHealth)
+                {
+                    health = maxHealth;
+                    print("health was above maxHealth");
+                }
+                UpdateHealthBar();
+                yield return new WaitForSeconds(1);
+            }
+            yield return null;
         }
     }
 }

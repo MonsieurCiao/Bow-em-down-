@@ -75,6 +75,7 @@ public class UpgradeManager : MonoBehaviour
         if(healthUpgradesAquired < totalHealthUpgrades && coinMaster.coins >= healthUpgradeCoins)
         {
             home.maxHealth *= 1.1f;
+            home.UpdateHealthBar();
             healthUpgradesAquired++;
             HealthUpgradesAquired.transform.localScale = new Vector3(healthUpgradesAquired / totalHealthUpgrades, 1, 1);
             coinMaster.assignCoins(-healthUpgradeCoins);

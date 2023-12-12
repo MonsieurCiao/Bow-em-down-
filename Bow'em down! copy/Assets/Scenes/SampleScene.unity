@@ -11181,6 +11181,7 @@ MonoBehaviour:
   maxHealth: 100
   regenRate: 1
   HealthBar: {fileID: 219968760}
+  isAbleToRegen: 1
 --- !u!1 &1771425483
 GameObject:
   m_ObjectHideFlags: 0
@@ -12452,6 +12453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e38111ca561646d3abb13553eb93a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  home: {fileID: 1760336929}
   waves:
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
