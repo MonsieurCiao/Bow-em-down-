@@ -31,6 +31,13 @@ public class UpgradeManager : MonoBehaviour
     float healthUpgradeCoins = 10;
     public TextMeshProUGUI healthText;
 
+    //regen uprgades
+    float totalRegenUpgrades = 15;
+    float regenUpgradesAquired = 0;
+    public GameObject RegenUpgradesAquired;
+    float regenUpgradeCoins = 10;
+    public TextMeshProUGUI regenText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,12 +47,15 @@ public class UpgradeManager : MonoBehaviour
         chargeTimeText.text = "Charge Time (" + chargeTimeCoins + ")";
         HealthUpgradesAquired.transform.localScale = new Vector3(healthUpgradesAquired / totalHealthUpgrades, 1, 1);
         healthText.text = "Health (" + healthUpgradeCoins + ")";
+        RegenUpgradesAquired.transform.localScale = new Vector3(regenUpgradesAquired / totalRegenUpgrades, 1, 1);
+        regenText.text = "Regen (" + regenUpgradeCoins + ")";
     }
+    
 
     // Update is called once per frame
     //void Update()
     //{
-        
+
     //}
     public void IncreasePower()
     {
@@ -81,6 +91,18 @@ public class UpgradeManager : MonoBehaviour
             coinMaster.assignCoins(-healthUpgradeCoins);
             healthUpgradeCoins *= 1.4f;
             healthText.text = "Health (" + healthUpgradeCoins + ")";
+        }
+    }
+    public void IncreaseRegen()
+    {
+        if(regenUpgradesAquired < totalRegenUpgrades && coinMaster.coins >= regenUpgradeCoins)
+        {
+            home.regenRate *= 1.1f;
+            regenUpgradesAquired++;
+            RegenUpgradesAquired.transform.localScale = new Vector3(regenUpgradesAquired / totalRegenUpgrades, 1, 1);
+            coinMaster.assignCoins(-regenUpgradeCoins);
+            regenUpgradeCoins *= 1.4f;
+            regenText.text = "Regen (" + regenUpgradeCoins + ")";
         }
     }
 }

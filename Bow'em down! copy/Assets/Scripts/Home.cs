@@ -9,6 +9,7 @@ public class Home : MonoBehaviour
     float health;
     public GameObject HealthBar;
     public bool isAbleToRegen = true;
+    public GameObject GFX;
     private void Start()
     {
         health = maxHealth;
@@ -47,6 +48,14 @@ public class Home : MonoBehaviour
                 yield return new WaitForSeconds(1);
             }
             yield return null;
+        }
+    }
+    void UpdateVisuals()
+    {
+        switch (health / maxHealth)
+        {
+            case 1:
+                break;
         }
     }
 }
