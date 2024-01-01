@@ -10,8 +10,10 @@ public class Home : MonoBehaviour
     public GameObject HealthBar;
     public bool isAbleToRegen = true;
     public GameObject GFX;
+    private Animator animator;
     private void Start()
     {
+        animator = GFX.GetComponent<Animator>();
         health = maxHealth;
         StartCoroutine(Regen());
     }
@@ -30,6 +32,10 @@ public class Home : MonoBehaviour
     {
         print(health);
         HealthBar.transform.localScale = new Vector3(health / maxHealth, 1,1);
+
+        //since update health bar is called every time the health changes in any way
+        //we can call updatevisuals here.
+        UpdateVisuals();
     }
     IEnumerator Regen()
     {
@@ -52,10 +58,23 @@ public class Home : MonoBehaviour
     }
     void UpdateVisuals()
     {
-        switch (health / maxHealth)
+        if(health / maxHealth == 1)
         {
-            case 1:
-                break;
+            animator.SetInteger("healthState", 0);
+        }else if(health/ maxHealth > 0.75f){
+            animator.SetInteger("healthState", 1);
+        }
+        else if(health/maxHealth > 0.5f)
+        {
+            animator.SetInteger("healthState", 2);
+        }
+        else if (health / maxHealth > 0.25f)
+        {
+            animator.SetInteger("healthState", 3);
+        }
+        else
+        {
+            animator.SetInteger("healthState", 4);
         }
     }
 }

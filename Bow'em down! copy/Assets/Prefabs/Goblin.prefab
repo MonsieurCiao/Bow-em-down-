@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,7 +133,6 @@ MonoBehaviour:
   attackRate: 1
   coins: 10
   dieParticles: {fileID: 2747106936953525787, guid: 3ed058252ce3040ae82182e24700731e, type: 3}
-  dropCoins: {fileID: 5647133350750679360, guid: b5c23c19a119e43c2b8718c84aec2cea, type: 3}
   CoinDrop: {fileID: 1552742812960967504, guid: f0a653d94cdb542e38d2eb83f3dec862, type: 3}
 --- !u!95 &7731715073643080236
 Animator:

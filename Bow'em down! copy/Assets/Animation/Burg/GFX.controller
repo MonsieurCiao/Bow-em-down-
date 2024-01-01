@@ -8,9 +8,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: healthRatio
-    m_EventTreshold: 0.25
+  - m_ConditionMode: 6
+    m_ConditionEvent: healthState
+    m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1361289795797991871}
   m_Solo: 0
@@ -67,9 +67,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: healthRatio
-    m_EventTreshold: 0.5
+  - m_ConditionMode: 6
+    m_ConditionEvent: healthState
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -476201286040784804}
   m_Solo: 0
@@ -92,9 +92,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: healthRatio
-    m_EventTreshold: 0.75
+  - m_ConditionMode: 6
+    m_ConditionEvent: healthState
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6037717933187236142}
   m_Solo: 0
@@ -117,8 +117,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: healthRatio
+  - m_ConditionMode: 6
+    m_ConditionEvent: healthState
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6037717933187236142}
@@ -142,9 +142,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: healthRatio
-    m_EventTreshold: 0.5
+  - m_ConditionMode: 6
+    m_ConditionEvent: healthState
+    m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -619178539657524923}
   m_Solo: 0
@@ -195,9 +195,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: healthRatio
-    m_EventTreshold: 0.25
+  - m_ConditionMode: 6
+    m_ConditionEvent: healthState
+    m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -619178539657524923}
   m_Solo: 0
@@ -248,9 +248,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: healthRatio
-    m_EventTreshold: 0.75
+  - m_ConditionMode: 6
+    m_ConditionEvent: healthState
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -476201286040784804}
   m_Solo: 0
@@ -274,8 +274,8 @@ AnimatorController:
   m_Name: GFX
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: healthRatio
-    m_Type: 1
+  - m_Name: healthState
+    m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -328,8 +328,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: healthRatio
+  - m_ConditionMode: 6
+    m_ConditionEvent: healthState
     m_EventTreshold: 0.95
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2974825225157506002}

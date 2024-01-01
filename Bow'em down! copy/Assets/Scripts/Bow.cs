@@ -14,7 +14,7 @@ public class Bow : MonoBehaviour
     Vector2 direction;
 
     //charging
-    float distanceReq = 17;
+    float distanceReq = 10;
     float distanceDragged;
     bool isAbleToCharge;
     public GameObject strengthArrow;

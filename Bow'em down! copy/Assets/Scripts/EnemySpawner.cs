@@ -54,6 +54,13 @@ public class EnemySpawner : MonoBehaviour
             home.isAbleToRegen = false;
             skipToNextWaveButton.SetActive(true);
             UpgradeCanvas.SetActive(true);
+            //Destroy all Fireballs
+            GameObject[] fireballs = GameObject.FindGameObjectsWithTag("Fireball");
+            foreach (GameObject fireball in fireballs)
+            {
+                fireball.GetComponent<Animator>().SetTrigger("explode");
+            }
+
             while (waitUntilNextWave)
             {
                 yield return new WaitForSeconds(1);

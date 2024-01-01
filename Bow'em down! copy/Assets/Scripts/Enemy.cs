@@ -15,14 +15,12 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     Home homeScript;
     Animator animator;
-    CoinMaster coinMaster;
-    public GameObject dropCoins;
+
 
     public GameObject CoinDrop;
     // Start is called before the first frame update
     void Start()
     {
-        coinMaster = GameObject.FindGameObjectWithTag("CoinMaster").GetComponent<CoinMaster>();
         rb = GetComponent<Rigidbody2D>();
         home = GameObject.FindGameObjectWithTag("Home");
         animator = GetComponent<Animator>();
@@ -69,8 +67,6 @@ public class Enemy : MonoBehaviour
     }
     void Die()
     {
-        //assign Coins 
-        //coinMaster.assignCoins(coins);
 
         //death Particles
         Vector3 particlePos = new Vector3(transform.position.x - 0.056f, transform.position.y - 0.513f, transform.position.y);

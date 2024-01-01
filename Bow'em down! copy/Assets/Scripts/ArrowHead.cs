@@ -48,7 +48,15 @@ public class ArrowHead : MonoBehaviour
 
             Destroy(box);
             Destroy(ownBox);
-            collision.GetComponent<Enemy>().Hit(damage);
+            if(collision.GetComponent<Enemy>() != null)
+            {
+                collision.GetComponent<Enemy>().Hit(damage);
+            }
+            else if(collision.GetComponent<WizardScript>() != null)
+            {
+                collision.GetComponent<WizardScript>().Hit(damage);
+            }
+            
             ParticleSystem particleInstance = Instantiate(arrowHitEnemyParticle, transform.position, transform.rotation);
             particleInstance.Play();
 

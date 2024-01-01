@@ -12,6 +12,9 @@ TagManager:
   - CoinMaster
   - MainCanvas
   - DamageDisplayHolder
+  - WizardAttack
+  - Arrow
+  - Fireball
   layers:
   - Default
   - TransparentFX
