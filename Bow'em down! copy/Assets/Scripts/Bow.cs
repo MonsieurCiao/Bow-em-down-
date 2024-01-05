@@ -21,6 +21,7 @@ public class Bow : MonoBehaviour
     Vector3 ScaleStrengthArrow;
     float chargeTime = 0;
     public bool inputAllowed = true;
+    float DraggedNMaxRatio = 0;
 
     //bow components
     public float power = 15f;
@@ -30,8 +31,8 @@ public class Bow : MonoBehaviour
     bool poison;
     float stun;
     float slow;
-    float chanceOfCritical;
-    float criticalMultiplier;
+    public float chanceOfCritical;
+    public float criticalMultiplier;
     public float totalChargeTime = 1.5f;
 
 
@@ -40,7 +41,7 @@ public class Bow : MonoBehaviour
     GameObject[] points;
     public int numberOfPoints;
     public float spaceBetweenPoints;
-
+    bool activateLineOfShot = false;
 
     void Awake()
     {
@@ -83,11 +84,19 @@ public class Bow : MonoBehaviour
             
             StartCoroutine(Charge());
         }
+
+
+        //Line of shot
+        for(int i = 0; i < numberOfPoints; i++)
+        {
+            points[i].transform.position = PointPosition(i * spaceBetweenPoints);
+            points[i].SetActive(activateLineOfShot);
+        }
     }
 
     IEnumerator Charge()
     {
-        float DraggedNMaxRatio = 1;
+        
         //get the starting Position of the mouse
         Vector2 startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -96,6 +105,7 @@ public class Bow : MonoBehaviour
         strengthArrow.SetActive(true);
         while (Input.GetMouseButton(0))
         {
+            activateLineOfShot = true;
             // Get the mouse position in world coordinates
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             distanceDragged = mousePos.x - startMousePos.x + Mathf.Abs(mousePos.y - startMousePos.y);
@@ -134,6 +144,7 @@ public class Bow : MonoBehaviour
         StartCoroutine(Shoot(DraggedNMaxRatio * power));
         strengthArrow.transform.localScale = ScaleStrengthArrow;
         strengthArrow.SetActive(false);
+        activateLineOfShot = false;
     }
     IEnumerator Shoot(float power)
     {
@@ -142,14 +153,28 @@ public class Bow : MonoBehaviour
         Arrow arrowScript = projectileObject.GetComponent<Arrow>();
 
         yield return new WaitForSeconds(0.1f);
+
+
+        //calculate critical
+        float chance = chanceOfCritical / 100f;
+        float result = Random.Range(1f, 100f) / 100f;
+        if (chance >= result) {
+            power *= criticalMultiplier;
+            print("critical!");
+        }
+
         StartCoroutine(arrowScript.StartFlying(power));
 
         isAbleToCharge = true;
     }
 
-    //Vector2 PointPosition(float t)
-    //{
-    //    Vector2 position = (Vector2)spawnPos.position + (direction.normalized * power * t) + 0.5f * Physics2D.gravity + (t * t);
-    //    return position;
-    //}
+    Vector2 PointPosition(float t)
+    {
+        //converting the spawning position to a vector2 and then adding the normalized direction with consideration of time
+        Vector2 horizontalPosition = (Vector2)spawnPos.position + (direction.normalized * power* DraggedNMaxRatio * t);
+        //calculating the vertical position
+        float verticalPosition = 0.5f * -9.81f * t * t;
+        Vector2 position = new Vector2(horizontalPosition.x, horizontalPosition.y + verticalPosition);
+        return position;
+    }
 }

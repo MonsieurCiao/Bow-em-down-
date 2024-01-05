@@ -10,17 +10,24 @@ public class ArrowHead : MonoBehaviour
     BoxCollider2D box;
     BoxCollider2D ownBox;
     Arrow arrow;
+    Bow bow;
+
 
     public TextMeshProUGUI damageDisplay;
+    public TextMeshProUGUI damageDisplaySmall;
+    public TextMeshProUGUI damageDisplayBig;
+
     public ParticleSystem arrowHitEnemyParticle;
     float damage;
+
+
     private void Start()
     {
         rbParent = GetComponentInParent<Rigidbody2D>();
         box = rbParent.GetComponent<BoxCollider2D>();
         ownBox = GetComponent<BoxCollider2D>();
         arrow = GetComponentInParent<Arrow>();
-
+        bow = GameObject.FindGameObjectWithTag("Bow").GetComponent<Bow>();
 
 
     }
@@ -41,10 +48,28 @@ public class ArrowHead : MonoBehaviour
         }
         if (collision.CompareTag("Enemy"))
         {
-            Vector3 damageDisplayLocation = transform.position;
-            damageDisplay.text = Mathf.Round((damage * 10) / 10).ToString();
-            Instantiate(damageDisplay, damageDisplayLocation, GameObject.FindGameObjectWithTag("Home").transform.rotation);
-            
+
+            //INSTANTIATING DAMAGE DISPLAY
+            if (bow.power == damage)
+            {
+                Vector3 damageDisplayLocation = transform.position;
+                damageDisplay.text = Mathf.Round((damage * 10) / 10).ToString();
+                Instantiate(damageDisplay, damageDisplayLocation, GameObject.FindGameObjectWithTag("Home").transform.rotation);
+            }
+            else if(bow.power >= damage)
+            {
+                //instantiate smaller
+                Vector3 damageDisplayLocation = transform.position;
+                damageDisplaySmall.text = Mathf.Round((damage * 10) / 10).ToString();
+                Instantiate(damageDisplaySmall, damageDisplayLocation, GameObject.FindGameObjectWithTag("Home").transform.rotation);
+            }
+            else
+            {
+                //instantiate bigger
+                Vector3 damageDisplayLocation = transform.position;
+                damageDisplayBig.text = Mathf.Round((damage * 10) / 10).ToString();
+                Instantiate(damageDisplayBig, damageDisplayLocation, GameObject.FindGameObjectWithTag("Home").transform.rotation);
+            }
 
             Destroy(box);
             Destroy(ownBox);

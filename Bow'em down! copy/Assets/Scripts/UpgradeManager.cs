@@ -38,6 +38,20 @@ public class UpgradeManager : MonoBehaviour
     float regenUpgradeCoins = 10;
     public TextMeshProUGUI regenText;
 
+    //chance of critical upgrades
+    float totalChanceCriticalUpgrades = 10;
+    float chanceCriticalUpgradesAquired = 0;
+    public GameObject ChanceCriticalUpgradesAquired;
+    float chanceCriticalCoins = 15;
+    public TextMeshProUGUI chanceCriticalText;
+
+    //critical Mutliplier upgrades
+    float totalCriticalMultiplierUpgrades = 10;
+    float criticalMutliplierUpgradesAquired = 0;
+    public GameObject CriticalMultiplierUpgradesAquired;
+    float criticalMultiplierCoins = 15;
+    public TextMeshProUGUI criticalMultiplierText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +63,10 @@ public class UpgradeManager : MonoBehaviour
         healthText.text = "Health (" + healthUpgradeCoins + ")";
         RegenUpgradesAquired.transform.localScale = new Vector3(regenUpgradesAquired / totalRegenUpgrades, 1, 1);
         regenText.text = "Regen (" + regenUpgradeCoins + ")";
+        ChanceCriticalUpgradesAquired.transform.localScale = new Vector3(chanceCriticalUpgradesAquired / totalChanceCriticalUpgrades, 1, 1);
+        chanceCriticalText.text = "crit Chance (" + chanceCriticalCoins + ")";
+        CriticalMultiplierUpgradesAquired.transform.localScale = new Vector3(criticalMutliplierUpgradesAquired / totalCriticalMultiplierUpgrades, 1, 1);
+        criticalMultiplierText.text = "crit Multiply (" + criticalMultiplierCoins + ")";
     }
     
 
@@ -103,6 +121,30 @@ public class UpgradeManager : MonoBehaviour
             coinMaster.assignCoins(-regenUpgradeCoins);
             regenUpgradeCoins *= 1.4f;
             regenText.text = "Regen (" + regenUpgradeCoins + ")";
+        }
+    }
+    public void ChanceCritical()
+    {
+        if(chanceCriticalUpgradesAquired < totalChanceCriticalUpgrades && coinMaster.coins >= chanceCriticalCoins)
+        {
+            bow.chanceOfCritical += 5;
+            chanceCriticalUpgradesAquired++;
+            ChanceCriticalUpgradesAquired.transform.localScale = new Vector3(chanceCriticalUpgradesAquired / totalChanceCriticalUpgrades, 1, 1);
+            coinMaster.assignCoins(-chanceCriticalCoins);
+            chanceCriticalCoins *= 2;
+            chanceCriticalText.text = "crit Chance (" + chanceCriticalCoins + ")";
+        }
+    }
+    public void criticalMultiplier()
+    {
+        if (criticalMutliplierUpgradesAquired < totalCriticalMultiplierUpgrades && coinMaster.coins >= criticalMultiplierCoins)
+        {
+            bow.criticalMultiplier += 0.15f;
+            criticalMutliplierUpgradesAquired++;
+            CriticalMultiplierUpgradesAquired.transform.localScale = new Vector3(criticalMutliplierUpgradesAquired / totalCriticalMultiplierUpgrades, 1, 1);
+            coinMaster.assignCoins(-criticalMultiplierCoins);
+            criticalMultiplierCoins *= 2;
+            criticalMultiplierText.text = "crit Multiply (" + criticalMultiplierCoins + ")";
         }
     }
 }

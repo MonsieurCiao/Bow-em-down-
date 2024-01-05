@@ -20,7 +20,10 @@ public class Home : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if (health <= 0) Die();
+        if (health <= 0) {
+            Die();
+            health = 0;
+        }
         UpdateHealthBar();
     }
     void Die()

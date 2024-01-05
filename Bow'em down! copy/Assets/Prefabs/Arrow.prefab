@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDisplay: {fileID: 1077192154275015088, guid: 1180b89ebd9b04fd899c617dc1d7a1da, type: 3}
+  damageDisplaySmall: {fileID: 5259524451914159737, guid: 7a4c5211cfb3d4328a5bd6faf806e196, type: 3}
+  damageDisplayBig: {fileID: 7057045672435266225, guid: b0a97961101534043b6a66fd0759cf1e, type: 3}
   arrowHitEnemyParticle: {fileID: 2858535543245047334, guid: cfb0545f3f6d34017a8649809a0a6baf, type: 3}
 --- !u!1 &6801423587348719945
 GameObject:
@@ -241,7 +243,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 3441d19f3b0b344629ec25a40dae6e9c, type: 2}
   m_IncludeLayers:
