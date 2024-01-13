@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
         {
             homeScript = collision.GetComponent<Home>();
             hasntCollided = false;
+            animator.SetBool("isAttacking", true);
             StartCoroutine(MakePain());
             
         }
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Home"))
         {
             hasntCollided = true;
+            animator.SetBool("isAttacking", false);
         }
     }
     public void Hit(float damage)

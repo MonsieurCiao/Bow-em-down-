@@ -38,7 +38,7 @@ public class CoinScript : MonoBehaviour
             float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
             float distanceToTargetTravelled = totalDistance - distanceToTarget;           
             float speedToDistance = speed * distanceToTargetTravelled / totalDistance;
-            if (speedToDistance < 5f) speedToDistance = 5f;
+            if (speedToDistance < 10f) speedToDistance = 10f;
             // Calculate the direction to move towards the target position
             Vector3 direction = (targetPosition - transform.position).normalized;
                        
