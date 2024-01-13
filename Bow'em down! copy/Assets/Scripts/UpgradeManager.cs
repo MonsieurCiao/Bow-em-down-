@@ -78,11 +78,11 @@ public class UpgradeManager : MonoBehaviour
     public void IncreasePower()
     {
         if(powerUpgradesAquired < totalPowerUpgrades && coinMaster.coins >= powerCoins) { 
-            bow.power += 1.5f;
+            bow.power += 1.25f;
             powerUpgradesAquired++;
             PowerProgressImage.transform.localScale = new Vector3(powerUpgradesAquired / totalPowerUpgrades, PowerProgressImage.transform.localScale.y, PowerProgressImage.transform.localScale.z);
             coinMaster.assignCoins(-powerCoins);
-            powerCoins *= 3f;
+            powerCoins *= 2f;
             PowerText.text = "Power (" + powerCoins + ")";
         }
     }
@@ -115,7 +115,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if(regenUpgradesAquired < totalRegenUpgrades && coinMaster.coins >= regenUpgradeCoins)
         {
-            home.regenRate *= 1.1f;
+            home.regenRate *= 1.05f;
             regenUpgradesAquired++;
             RegenUpgradesAquired.transform.localScale = new Vector3(regenUpgradesAquired / totalRegenUpgrades, 1, 1);
             coinMaster.assignCoins(-regenUpgradeCoins);

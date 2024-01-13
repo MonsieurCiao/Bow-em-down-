@@ -14352,29 +14352,31 @@ MonoBehaviour:
   home: {fileID: 1760336929}
   waves:
   - enemies:
-    - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
+    - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
       count: 1
-      timeBetweenSpawns: 0.5
+      timeBetweenSpawns: 0.75
     timeBetweenWaves: 5
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
-      count: 1
-      timeBetweenSpawns: 0.5
-    - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
-      count: 1
-      timeBetweenSpawns: 0.5
-    timeBetweenWaves: 0.5
+      count: 2
+      timeBetweenSpawns: 1
+    timeBetweenWaves: 5
   - enemies:
-    - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
-      count: 1
-      timeBetweenSpawns: 0.5
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
       count: 3
-      timeBetweenSpawns: 0.5
-    timeBetweenWaves: 5
+      timeBetweenSpawns: 1
+    timeBetweenWaves: 0.5
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
       count: 2
+      timeBetweenSpawns: 0.5
+    - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
+      count: 2
+      timeBetweenSpawns: 5
+    timeBetweenWaves: 5
+  - enemies:
+    - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
+      count: 5
       timeBetweenSpawns: 0.5
     - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
       count: 2
@@ -14382,36 +14384,40 @@ MonoBehaviour:
     timeBetweenWaves: 5
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
-      count: 20
+      count: 4
       timeBetweenSpawns: 0.5
     - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
-      count: 20
-      timeBetweenSpawns: 0
+      count: 5
+      timeBetweenSpawns: 1
     timeBetweenWaves: 5
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
+      count: 8
+      timeBetweenSpawns: 1
+    - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
       count: 2
-      timeBetweenSpawns: 0.5
+      timeBetweenSpawns: 1
     timeBetweenWaves: 5
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
-      count: 2
-      timeBetweenSpawns: 0.5
+      count: 10
+      timeBetweenSpawns: 2
     timeBetweenWaves: 5
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
-      count: 2
-      timeBetweenSpawns: 0.5
+      count: 8
+      timeBetweenSpawns: 1
+    - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
+      count: 3
+      timeBetweenSpawns: 10
     timeBetweenWaves: 5
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
-      count: 2
-      timeBetweenSpawns: 0.5
-    timeBetweenWaves: 5
-  - enemies:
-    - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
-      count: 2
-      timeBetweenSpawns: 0.5
+      count: 10
+      timeBetweenSpawns: 3
+    - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
+      count: 3
+      timeBetweenSpawns: 10
     timeBetweenWaves: 5
   WaveText: {fileID: 1533482265}
   skipToNextWaveButton: {fileID: 200115498}
