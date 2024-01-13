@@ -12502,7 +12502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6eb75852ec74c85afd451963e71813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 15
   regenRate: 1
   HealthBar: {fileID: 219968760}
   isAbleToRegen: 1
@@ -13065,7 +13065,7 @@ SpriteRenderer:
   m_Size: {x: 0.23, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1955735655
@@ -14379,20 +14379,20 @@ MonoBehaviour:
       count: 5
       timeBetweenSpawns: 0.5
     - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
-      count: 2
+      count: 1
       timeBetweenSpawns: 0.5
     timeBetweenWaves: 5
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
-      count: 4
+      count: 3
       timeBetweenSpawns: 0.5
     - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
-      count: 5
+      count: 3
       timeBetweenSpawns: 1
     timeBetweenWaves: 5
   - enemies:
     - enemyPrefab: {fileID: 7731715073643080214, guid: 7f2510885e7b8472da5382793509667d, type: 3}
-      count: 8
+      count: 6
       timeBetweenSpawns: 1
     - enemyPrefab: {fileID: 1660029466794037644, guid: aeead2a7f633a49f2a25e21143633314, type: 3}
       count: 2

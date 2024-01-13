@@ -15,11 +15,9 @@ public class CoinScript : MonoBehaviour
     float totalDistance;
     void Start()
     {
-        
         coinMaster = GameObject.FindGameObjectWithTag("CoinMaster").GetComponent<CoinMaster>();
 
         targetPosition = new Vector3(-5.83900023f, -3.37800002f, 0);
-
 
         StartCoroutine(FlyTowardsBase());
     }

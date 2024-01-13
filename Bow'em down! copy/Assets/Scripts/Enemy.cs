@@ -16,8 +16,8 @@ public class Enemy : MonoBehaviour
     Home homeScript;
     Animator animator;
 
-
     public GameObject CoinDrop;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Home"))
@@ -51,6 +52,7 @@ public class Enemy : MonoBehaviour
             
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Home"))
@@ -59,6 +61,7 @@ public class Enemy : MonoBehaviour
             animator.SetBool("isAttacking", false);
         }
     }
+
     public void Hit(float damage)
     {
         health -= damage;
@@ -67,6 +70,7 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+
     void Die()
     {
 
@@ -86,6 +90,7 @@ public class Enemy : MonoBehaviour
         //destroy gameobject
         Destroy(this.gameObject);
     }
+
     IEnumerator MakePain()
     {
         while (!hasntCollided)

@@ -12,7 +12,6 @@ public class ArrowHead : MonoBehaviour
     Arrow arrow;
     Bow bow;
 
-
     public TextMeshProUGUI damageDisplay;
     public TextMeshProUGUI damageDisplaySmall;
     public TextMeshProUGUI damageDisplayBig;
@@ -28,9 +27,8 @@ public class ArrowHead : MonoBehaviour
         ownBox = GetComponent<BoxCollider2D>();
         arrow = GetComponentInParent<Arrow>();
         bow = GameObject.FindGameObjectWithTag("Bow").GetComponent<Bow>();
-
-
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ground"))
@@ -48,7 +46,7 @@ public class ArrowHead : MonoBehaviour
         }
         if (collision.CompareTag("Enemy"))
         {
-
+            
             //INSTANTIATING DAMAGE DISPLAY
             if (bow.power == damage)
             {
@@ -89,6 +87,7 @@ public class ArrowHead : MonoBehaviour
             parentSpriteRenderer.enabled = false;
         }
     }
+    
     public void SetDamage(float power)
     {
         damage = power;

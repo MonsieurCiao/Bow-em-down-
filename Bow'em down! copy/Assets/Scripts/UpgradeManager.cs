@@ -70,11 +70,6 @@ public class UpgradeManager : MonoBehaviour
     }
     
 
-    // Update is called once per frame
-    //void Update()
-    //{
-
-    //}
     public void IncreasePower()
     {
         if(powerUpgradesAquired < totalPowerUpgrades && coinMaster.coins >= powerCoins) { 
@@ -115,7 +110,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if(regenUpgradesAquired < totalRegenUpgrades && coinMaster.coins >= regenUpgradeCoins)
         {
-            home.regenRate *= 1.05f;
+            home.regenRate *= 1.1f;
             regenUpgradesAquired++;
             RegenUpgradesAquired.transform.localScale = new Vector3(regenUpgradesAquired / totalRegenUpgrades, 1, 1);
             coinMaster.assignCoins(-regenUpgradeCoins);

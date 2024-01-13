@@ -10,17 +10,11 @@ public class CoinMaster : MonoBehaviour
     public TMP_Text coinDisplay;
     public TMP_Text emeraldDisplay;
 
-    // Start is called before the first frame update
-    //void Start()
-    //{
-    //    coins = 0.2634f;
-    //}
+    private void Start()
+    {
+        coins = 0f;
+    }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
     public void assignCoins(float gold)
     {
         coins += gold;
@@ -38,6 +32,7 @@ public class CoinMaster : MonoBehaviour
         else coinDisplay.text = (Mathf.Round(coins * 10) / 10).ToString(); 
 
     }
+
     public void assignEmeralds(float ems)
     {
         emeralds += ems;

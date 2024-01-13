@@ -17,7 +17,6 @@ public class Fireball : MonoBehaviour
         //need to CHANGE this if changing WIZARD SCALE
         transform.localScale = new Vector3(1f / 3f, 1f / 3f, 1);
 
-
         burg = GameObject.FindGameObjectWithTag("Home").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         home = GameObject.FindGameObjectWithTag("Home").GetComponent<Home>();
@@ -26,6 +25,7 @@ public class Fireball : MonoBehaviour
         //setting arrow Holder as Transform Parent
         GameObject arrowParent = GameObject.FindGameObjectWithTag("arrowParentTag");
         transform.parent = arrowParent.transform;
+        
         if (rb == null)
         {
             print("no rigidbody found");
@@ -43,6 +43,7 @@ public class Fireball : MonoBehaviour
         }
         else rb.velocity = Vector2.zero;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Home"))
@@ -56,6 +57,7 @@ public class Fireball : MonoBehaviour
             animator.SetTrigger("explode");
         }
     }
+
     void MakePain()
     {
         home.TakeDamage(damage);
@@ -63,6 +65,7 @@ public class Fireball : MonoBehaviour
         //call animator "explode" here
         //on finish of animation delete gameobject
     }
+
     public void DestroySelf()
     {
         Destroy(gameObject);

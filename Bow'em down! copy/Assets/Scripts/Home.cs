@@ -11,12 +11,14 @@ public class Home : MonoBehaviour
     public bool isAbleToRegen = true;
     public GameObject GFX;
     private Animator animator;
+    
     private void Start()
     {
         animator = GFX.GetComponent<Animator>();
         health = maxHealth;
         StartCoroutine(Regen());
     }
+
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -26,11 +28,13 @@ public class Home : MonoBehaviour
         }
         UpdateHealthBar();
     }
+
     void Die()
     {
         print("Game has ended!!!!");
         Time.timeScale = 0;
     }
+
     public void UpdateHealthBar()
     {
         print(health);
@@ -40,6 +44,7 @@ public class Home : MonoBehaviour
         //we can call updatevisuals here.
         UpdateVisuals();
     }
+
     IEnumerator Regen()
     {
         while (true)
@@ -59,6 +64,7 @@ public class Home : MonoBehaviour
             yield return null;
         }
     }
+
     void UpdateVisuals()
     {
         if(health / maxHealth == 1)

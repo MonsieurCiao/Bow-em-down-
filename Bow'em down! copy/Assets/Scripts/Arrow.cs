@@ -21,10 +21,7 @@ public class Arrow : MonoBehaviour
 
     //damage
     float damage;
-
     
-
-
 
     void Start()
     {
@@ -35,9 +32,6 @@ public class Arrow : MonoBehaviour
         arrowHead = GetComponentInChildren<ArrowHead>();
 
 
-  
-        
-
         // Set the instantiated arrow as a child of the arrow parent
         transform.parent = arrowParent.transform;
         if (rb == null)
@@ -45,6 +39,7 @@ public class Arrow : MonoBehaviour
             print("no rigidbody found");
         }
     }
+    
     private void Update()
     {
         //standart particle sys 
@@ -53,6 +48,7 @@ public class Arrow : MonoBehaviour
 
         
     }
+    
     IEnumerator CalculateRotation()
     {
         
@@ -73,6 +69,7 @@ public class Arrow : MonoBehaviour
             particle.Stop();
         }
     }
+    
     public IEnumerator StartFlying(float power)
     {
 
@@ -84,5 +81,4 @@ public class Arrow : MonoBehaviour
         yield return new WaitForSeconds(20f);
         Destroy(this.gameObject);
     }
-    
 }

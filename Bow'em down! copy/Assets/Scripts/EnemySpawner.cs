@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     bool waitUntilNextWave;
     public GameObject skipToNextWaveButton;
     public GameObject UpgradeCanvas;
+
     void Start()
     {
         StartCoroutine(SpawnWaves());
@@ -23,10 +24,12 @@ public class EnemySpawner : MonoBehaviour
         UpgradeCanvas.SetActive(false);
         UpdateWaveText();
     }
+
     private void Update()
     {
         if (GameObject.FindGameObjectWithTag("Enemy") == null) waveHasBeenCleared = true;
     }
+
     IEnumerator SpawnWaves()
     {
         while (currentWaveIndex < waves.Length)
@@ -42,11 +45,13 @@ public class EnemySpawner : MonoBehaviour
                     yield return new WaitForSeconds(enemyInfo.timeBetweenSpawns);
                 }
             }
+            
             //wait until the enemies have been killed
             while (!waveHasBeenCleared)
             {
                 yield return new WaitForSeconds(1);
             }
+            
             //make button appear to skip to next wave but till then wait..
             Bow bow = GameObject.FindGameObjectWithTag("Bow").GetComponent<Bow>();
             bow.inputAllowed = false;
@@ -65,6 +70,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 yield return new WaitForSeconds(1);
             }
+
             bow.inputAllowed = true;
             home.isAbleToRegen = true;
             skipToNextWaveButton.SetActive(false);
@@ -73,15 +79,18 @@ public class EnemySpawner : MonoBehaviour
             UpdateWaveText();
         }
     }
+
     void UpdateWaveText()
     {
         WaveText.text = "Wave " + (currentWaveIndex + 1).ToString();
     }
+
     void SpawnEnemy(GameObject enemyPrefab)
     {
         // Implement your logic to spawn enemies here
         Instantiate(enemyPrefab, transform.position, Quaternion.identity);
     }
+
     public void SkipToNextWave()
     {
         waitUntilNextWave = false;
